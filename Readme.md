@@ -1,6 +1,6 @@
 # Serverless Example App
 
-Contains a `.yaml` meant to be used with [`serverless` Framework](https://serverless.com/).
+Contains a `.yaml` meant to be used with [`serverless` Framework](https://serverless.com/).<br>
 Inspect the files `handler.js`, `src/server/preRender.js` and `src/server/index.js`.
 
 ```bash
