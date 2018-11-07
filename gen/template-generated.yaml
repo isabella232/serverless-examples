@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A starter AWS Lambda function.
+Parameters:
+  IdentityNameParameter:
+    Type: String
+Resources:
+  helloworld:
+    Properties:
+      CodeUri: s3://sam-dev-toolkit-lambda-app/f144bd581b86c62952d4b8b687dfbf7a
+      Description: Starter AWS Lambda function with dev-toolkit.
+      Events:
+        HelloWorldSamAPI:
+          Properties:
+            Method: GET
+            Path: /render-test
+          Type: Api
+      Handler: handler.render
+      MemorySize: 256
+      Runtime: nodejs8.10
+      Timeout: 20
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
