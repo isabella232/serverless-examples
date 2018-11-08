@@ -29,4 +29,4 @@ exports.render = (event, context, callback) => {
 };
 
 // Testing locally:
-// exports.render('', '', console.log);
+if (process.env.TESTING) exports.render("", "", console.log);
