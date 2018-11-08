@@ -6,7 +6,7 @@ Parameters:
 Resources:
   helloworld:
     Properties:
-      CodeUri: s3://sam-dev-toolkit-lambda-app/f144bd581b86c62952d4b8b687dfbf7a
+      CodeUri: s3://sam-dev-toolkit-lambda-app/6b82d6545c883044ffeae9041f7f5b36
       Description: Starter AWS Lambda function with dev-toolkit.
       Events:
         HelloWorldSamAPI:
