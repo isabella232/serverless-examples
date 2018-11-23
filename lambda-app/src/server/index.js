@@ -5,7 +5,7 @@ import fs from 'fs';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import clearModule from 'clear-module';
-import { isDev } from 'dev-toolkit/settings';
+import { isDev, usePreRender } from 'dev-toolkit/settings';
 
 // Unlike the client app, the server app can only ever be run in Node.js
 // we therefore have direct access to Node-specific things like `process`
@@ -26,8 +26,7 @@ export default new class {
 
   // Ability to launch server later (allows dev-toolkit to bind webpack-middleware before start)
   start({ assets, buildFolder }) {
-    // Only server-render during development
-    if (isDev) {
+    if (isDev || !usePreRender) {
       // Render the template-file on any incoming requests
       this.express.use((req, res) => {
         // Remove Client App from cache (cheap server-side Hot-Reload)

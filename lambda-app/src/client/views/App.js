@@ -1,4 +1,4 @@
 import React from 'react';
 
 // Use this as the entry-point for your app.
-export default () => <div>{'Yay, a React Serverless App 4!'}</div>;
+export default () => <div>{'Yay, a React Serverless App!'}</div>;
