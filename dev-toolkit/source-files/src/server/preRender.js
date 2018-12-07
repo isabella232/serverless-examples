@@ -11,6 +11,10 @@ const handlebarsInstance = expressHandlebars.create();
 
 // This file is called individually via programmatic usage in `handler.js`
 export default ({ event, context, callback }) => {
+  if (context) {
+    context.callbackWaitsForEmptyEventLoop = false;
+  }
+
   return new Promise((resolve, reject) => {
     // Here handlebars is used to generate the html without express and without webpack
     handlebarsInstance

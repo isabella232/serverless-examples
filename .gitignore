@@ -9,5 +9,8 @@ dist/
 .vscode/
 .idea/
 
+
+lambda-app/
+
 ### Dependency directories
 node_modules/
