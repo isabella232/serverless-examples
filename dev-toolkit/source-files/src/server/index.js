@@ -10,8 +10,10 @@ import { isDev, usePreRender } from 'dev-toolkit/settings';
 // Unlike the client app, the server app can only ever be run in Node.js
 // we therefore have direct access to Node-specific things like `process`
 const serverPort = process.env.SERVER_PORT || 3000;
-const serverViews = path.resolve(process.cwd(), 'src/server/views');
-const rootComponentPath = path.resolve(process.cwd(), 'src/client/RootComponent');
+const projectDirectory = process.cwd();
+const serverViews = path.resolve(projectDirectory, 'src/server/views');
+const clientFolder = path.resolve(projectDirectory, 'src/client');
+const rootComponentPath = path.resolve(projectDirectory, 'src/client/RootComponent');
 
 export default new class {
   constructor() {
@@ -32,6 +34,7 @@ export default new class {
         // Remove Client App from cache (cheap server-side Hot-Reload)
         if (isDev) {
           clearModule(rootComponentPath);
+          clearModule.match(new RegExp(`^${clientFolder}`, 'i'));
         }
         // Load newest version of Client App via RootComponent
         import(rootComponentPath).then(module => {

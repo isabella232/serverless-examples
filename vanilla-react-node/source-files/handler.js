@@ -20,7 +20,11 @@ exports.render = (event, context, callback) => {
   callback(null, {
     statusCode: "200",
     body: renderToString(
-      React.createElement("span", { className: "test-element" }, "Test Element")
+      React.createElement(
+        "span",
+        { className: "test-element" },
+        'Test Element (for "vanilla-react-node")'
+      )
     ),
     headers: {
       "Content-Type": "application/json"
